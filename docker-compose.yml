@@ -1,0 +1,27 @@
+services:
+  f1tenth_system:
+    build: .
+    image: f1tenth_system:latest
+    volumes:
+      - /dev:/dev
+    entrypoint: ["bash", "-c", "source /opt/ros/foxy/setup.bash && source /f1tenth_system/install/setup.bash && ros2 launch f1tenth_stack bringup_launch.py"]
+    networks: 
+      - f1tenth
+    tty: true
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    privileged: true
+networks:
+  f1tenth:
+    name: f1tenth
+    driver: bridge
+    external: true
