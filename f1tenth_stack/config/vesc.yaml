@@ -21,7 +21,7 @@
     position_min: 0.0
     position_max: 0.0
     servo_min: 0.11
-    servo_max: 0.91
+    servo_max: 0.910970
 
 # No longer needed, all parameters are shared
 # ackermann_to_vesc_node:
