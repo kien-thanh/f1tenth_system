@@ -4,7 +4,7 @@ services:
     image: f1tenth_system:latest
     volumes:
       - /dev:/dev
-    entrypoint: ["bash", "-c", "source /opt/ros/foxy/setup.bash && source /f1tenth_system/install/setup.bash && ros2 launch f1tenth_stack bringup_launch.py"]
+    entrypoint: ["bash", "-c", "source /opt/ros/humble/setup.bash && source /f1tenth_system/install/setup.bash && ros2 launch f1tenth_stack bringup_launch.py"]
     networks: 
       - f1tenth
     tty: true
