@@ -120,12 +120,12 @@ def generate_launch_description():
         parameters=[LaunchConfiguration('mux_config')],
         remappings=[('ackermann_cmd_out', 'ackermann_drive')]
     )
-    static_tf_baselink_laser_node = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_baselink_to_laser',
-        arguments=['0.27', '0.0', '0.11', '0.0', '0.0', '0.0', 'base_link', 'laser']
-    )
+    # static_tf_baselink_laser_node = Node(
+    #     package='tf2_ros',
+    #     executable='static_transform_publisher',
+    #     name='static_baselink_to_laser',
+    #     arguments=['0.27', '0.0', '0.11', '0.0', '0.0', '0.0', 'base_link', 'laser']
+    # )
     static_tf_baselink_footprint_node = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -148,7 +148,7 @@ def generate_launch_description():
     # ld.add_action(throttle_interpolator_node)
     ld.add_action(urg_node)
     ld.add_action(ackermann_mux_node)
-    ld.add_action(static_tf_baselink_laser_node)
+    # ld.add_action(static_tf_baselink_laser_node)
     ld.add_action(static_tf_baselink_footprint_node)
     ld.add_action(static_tf_baselink_imu_node)
 
